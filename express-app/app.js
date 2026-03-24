@@ -23,11 +23,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('mydb.db');
-db.run(`CREATE TABLE IF NOT EXISTS users (
-   id INTEGER PRIMARY KEY AUTOINCREMENT,
-   name text)`);    
+ 
 
 
 module.exports = app;
