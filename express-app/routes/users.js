@@ -38,7 +38,7 @@ router.post('/', function(req, res, next) {
 
   db.run(insert, [name], function(err) {
     if (err) {
-      return res.status(500).json({ error: 'Database error' });
+      console.log(err);
     }
     res.status(201).json({ id: this.lastID, name });
   });
