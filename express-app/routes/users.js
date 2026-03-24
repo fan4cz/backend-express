@@ -11,6 +11,16 @@ router.get('/', function(req, res, next) {
   res.json({ items: users });
 });
 
+router.get('/:id', function(req, res, next) {
+  const userId = parseInt(req.params.id);
+  const user = users.find(u => u.id === userId);
+  
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  
+  res.json(user);
+});
 
 router.post('/', function(req, res, next) {
   const newUser = {
